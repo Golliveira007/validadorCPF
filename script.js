@@ -8,12 +8,12 @@ function validar(cpf) {
     let soma = 0;
     let resto;
 
-    //validação do 1º DV
+    // Validação do 1º DV
     for(let i = 1; i <= 9; i++){
-     soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+        soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
     }
 
-    resto = (soma*10) % 11;
+    resto = (soma * 10) % 11;
 
     if(resto === 10 || resto === 11){
         resto = 0;
@@ -23,40 +23,37 @@ function validar(cpf) {
         return false;
     }
 
-    //Validação do 2º DV
+    // Validação do 2º DV
     soma = 0;
-    for(let i = 1; 1 <= 10; i++){
-        soma += parseInt(cpf.substring(i - 1, i)) * (12-i);
-
+    for(let i = 1; i <= 10; i++){  // Corrigido: i <= 10
+        soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
     }
 
-    resto = (soma * 10) %11;
+    resto = (soma * 10) % 11;
+    
     if(resto === 10 || resto === 11){
         resto = 0;
     }
 
-    if(resto !== parseInt(cpf.substring(10,11))){
+    if(resto !== parseInt(cpf.substring(10, 11))){
         return false;
     }
 
     return true;
-    
-
 }
 
 document.getElementById("cpfForm").addEventListener("submit", function(e){
     e.preventDefault();
     const cpfInput = document.querySelector("#cpf").value;
-    const massageDiv = document.querySelector("#message");
+    const messageDiv = document.querySelector("#message"); // Corrigido
 
-    if(validar(cpfInput )){
-        massageDiv.textContent = "CPF válido";
-        massageDiv.className = "message sucess";
-    }else{
-        massageDiv.textContent = "CPF Iválido";
-        massageDiv.className = "message error";
+    if(validar(cpfInput)){
+        messageDiv.textContent = "CPF válido";
+        messageDiv.className = "message success";
+    } else {
+        messageDiv.textContent = "CPF inválido";
+        messageDiv.className = "message error";
     }
 
-    massageDiv.style.display = "block";
-
+    messageDiv.style.display = "block";
 });

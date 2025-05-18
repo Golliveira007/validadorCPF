@@ -1,55 +1,88 @@
-body{
+/* Estilo geral do corpo */
+body {
     display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: cadetblue;
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #3a8dbc, #2c3e50);
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #333;
 }
 
-.form-container{
-    background-color: aliceblue;
-    padding: 20px;
-    box-shadow: 0 0 10px rgb(0,0,0,0.1);
-    border-radius: 5px;
+/* Container do formulário */
+.form-container {
+    background-color: #f4f4f9;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s;
 }
 
-.form-container input{
+.form-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Input de texto */
+.form-container input {
     display: block;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 15px;
+    padding: 12px;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    outline: none;
+    transition: border 0.3s;
+    font-size: 16px;
 }
 
-.form-container button{
-    padding: 10px;
+.form-container input:focus {
+    border-color: #3a8dbc;
+}
+
+/* Botão de envio */
+.form-container button {
+    padding: 12px;
     width: 100%;
-    background-color: cadetblue;
-    color: black;
+    background-color: #3a8dbc;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
-.message{
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
+.form-container button:hover {
+    background-color: #2c3e50;
+}
+
+/* Mensagens de feedback */
+.message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
     display: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: opacity 0.3s;
 }
 
-.message.sucess{
-    background-color: greenyellow;
-    color: darkgreen;
+/* Mensagem de sucesso */
+.message.success {
+    background-color: #27ae60;
+    color: #fff;
+    border-left: 5px solid #1e8449;
 }
 
-.message.error{
-    background-color: tomato;
-    color: red;
+/* Mensagem de erro */
+.message.error {
+    background-color: #e74c3c;
+    color: #fff;
+    border-left: 5px solid #c0392b;
 }
-
-
